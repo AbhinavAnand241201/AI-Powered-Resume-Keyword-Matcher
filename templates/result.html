@@ -21,6 +21,14 @@
             color: #4CAF50;
             margin: 20px 0;
         }
+        .score {
+            font-size: 24px;
+            color: #2196F3;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+        }
         .back-link {
             display: inline-block;
             background-color: #4CAF50;
@@ -28,6 +36,7 @@
             padding: 10px 20px;
             text-decoration: none;
             border-radius: 4px;
+            margin-top: 20px;
         }
         .back-link:hover {
             background-color: #45a049;
@@ -38,6 +47,11 @@
     <div class="container">
         <h1>Result</h1>
         <p class="message">{{ message }}</p>
+        {% if score is defined %}
+        <div class="score">
+            Match Score: {{ score }}%
+        </div>
+        {% endif %}
         <a href="/" class="back-link">Go Back</a>
     </div>
 </body>

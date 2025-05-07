@@ -4,4 +4,8 @@ Jinja2==3.1.6
 itsdangerous==2.2.0
 click==8.1.8
 blinker==1.9.0
-MarkupSafe==3.0.2 
+MarkupSafe==3.0.2
+PyPDF2==3.0.1
+sentence-transformers==4.1.0
+torch==2.7.0
+transformers==4.51.3 

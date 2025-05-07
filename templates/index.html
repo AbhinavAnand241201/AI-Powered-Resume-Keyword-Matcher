@@ -34,20 +34,41 @@
         button:hover {
             background-color: #45a049;
         }
+        .file-input {
+            margin: 10px 0;
+        }
+        .file-input label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .or-divider {
+            text-align: center;
+            margin: 15px 0;
+            color: #666;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Resume Keyword Matcher</h1>
-        <form method="POST" action="/submit">
+        <form method="POST" action="/submit" enctype="multipart/form-data">
+            <div class="file-input">
+                <label for="resume">Upload Resume (PDF):</label>
+                <input type="file" name="resume" id="resume" accept=".pdf">
+            </div>
+            
+            <div class="or-divider">OR</div>
+            
             <div>
                 <label for="resume_text">Paste Resume Text:</label><br>
-                <textarea name="resume_text" id="resume_text" rows="10" cols="50" required></textarea>
+                <textarea name="resume_text" id="resume_text" rows="10" cols="50"></textarea>
             </div>
+            
             <div>
                 <label for="job_desc">Paste Job Description:</label><br>
                 <textarea name="job_desc" id="job_desc" rows="10" cols="50" required></textarea>
             </div>
+            
             <button type="submit">Submit</button>
         </form>
     </div>
