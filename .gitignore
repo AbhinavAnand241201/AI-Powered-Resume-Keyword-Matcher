@@ -1,0 +1,11 @@
+# SQLite database
+*.db
+
+# Virtual Environment
+venv/
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/ 
