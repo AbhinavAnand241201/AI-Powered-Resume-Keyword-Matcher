@@ -1,0 +1,26 @@
+JOHN DOE
+Software Developer
+
+SUMMARY
+Experienced Python developer with 5 years of experience in web development and machine learning. Proficient in Flask, Django, and React frameworks. Strong background in database design and API development.
+
+SKILLS
+Programming Languages: Python, JavaScript, SQL
+Frameworks: Flask, Django, React, Express
+Databases: PostgreSQL, MongoDB, SQLite
+Tools: Git, Docker, AWS
+
+EXPERIENCE
+Senior Python Developer | TechCorp Inc. | 2020-Present
+- Developed and maintained multiple Flask-based web applications
+- Implemented machine learning models for data analysis
+- Led a team of 3 developers for API development projects
+
+Full Stack Developer | WebSolutions | 2018-2020
+- Built responsive web applications using React and Django
+- Designed and optimized database schemas
+- Implemented RESTful APIs for mobile applications
+
+EDUCATION
+Bachelor of Science in Computer Science
+University of Technology | 2014-2018 

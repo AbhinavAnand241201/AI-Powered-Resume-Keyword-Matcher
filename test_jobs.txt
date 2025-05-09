@@ -1,0 +1,26 @@
+# High Match Job Description
+Senior Python Developer
+We are seeking an experienced Python developer with strong web development skills. The ideal candidate should have:
+- 5+ years of experience with Python
+- Proficiency in Flask or Django frameworks
+- Experience with RESTful APIs
+- Knowledge of SQL databases
+- Familiarity with Git and AWS
+
+# Moderate Match Job Description
+Full Stack JavaScript Developer
+Looking for a full-stack developer with:
+- Strong JavaScript and React experience
+- Node.js and Express.js knowledge
+- Database experience (MongoDB, PostgreSQL)
+- RESTful API development
+- Git version control
+
+# Low Match Job Description
+DevOps Engineer
+Seeking a DevOps engineer with:
+- Strong Linux administration skills
+- Experience with Jenkins and CircleCI
+- Kubernetes and container orchestration
+- Terraform and Infrastructure as Code
+- Shell scripting experience 

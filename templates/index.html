@@ -1,76 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Keyword Matcher</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .container {
-            background-color: #f5f5f5;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        textarea {
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-        .file-input {
-            margin: 10px 0;
-        }
-        .file-input label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .or-divider {
-            text-align: center;
-            margin: 15px 0;
-            color: #666;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Resume Keyword Matcher</h1>
-        <form method="POST" action="/submit" enctype="multipart/form-data">
-            <div class="file-input">
-                <label for="resume">Upload Resume (PDF):</label>
-                <input type="file" name="resume" id="resume" accept=".pdf">
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Resume Keyword Matcher</h2>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Search for a Job</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('fetch_job') }}" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="job_search" 
+                                   placeholder="Enter job title or keywords (e.g., Python Developer)" required>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                    
+                    {% if job_title %}
+                        <div class="alert alert-info">
+                            <h5>{{ job_title }}</h5>
+                            <p class="mb-1"><strong>Company:</strong> {{ job_company }}</p>
+                            <p class="mb-1"><strong>Location:</strong> {{ job_location }}</p>
+                        </div>
+                    {% endif %}
+                </div>
             </div>
-            
-            <div class="or-divider">OR</div>
-            
-            <div>
-                <label for="resume_text">Paste Resume Text:</label><br>
-                <textarea name="resume_text" id="resume_text" rows="10" cols="50"></textarea>
-            </div>
-            
-            <div>
-                <label for="job_desc">Paste Job Description:</label><br>
-                <textarea name="job_desc" id="job_desc" rows="10" cols="50" required></textarea>
-            </div>
-            
-            <button type="submit">Submit</button>
-        </form>
+        </div>
     </div>
-</body>
-</html> 
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Submit Resume and Job Description</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('submit') }}" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="resume" class="form-label">Upload Resume (PDF)</label>
+                            <input type="file" class="form-control" id="resume" name="resume" accept=".pdf">
+                            <div class="form-text">Maximum file size: 5MB</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="resume_text" class="form-label">Or Paste Resume Text</label>
+                            <textarea class="form-control" id="resume_text" name="resume_text" rows="10" 
+                                      placeholder="Paste your resume text here...">{{ resume_text if resume_text else '' }}</textarea>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="job_desc" class="form-label">Job Description</label>
+                            <textarea class="form-control" id="job_desc" name="job_desc" rows="10" required
+                                      placeholder="Paste the job description here...">{{ job_desc if job_desc else '' }}</textarea>
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
